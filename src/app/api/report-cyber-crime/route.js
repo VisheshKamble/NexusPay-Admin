@@ -17,13 +17,13 @@ export async function POST(req) {
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS, // 16-digit App Password
+                pass: process.env.EMAIL_PASS,
             },
         });
 
         const mailOptions = {
             from: `"NexusPay Security" <${process.env.EMAIL_USER}>`,
-            to: 'sparthsalunke@gmail.com',
+            to: process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER,
             subject: `🚨 Official Fraud Dispatch: ${caseID}`,
             html: `
                 <div style="font-family: sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 10px;">
