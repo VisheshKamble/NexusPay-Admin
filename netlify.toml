@@ -4,10 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "18"
-
-[[plugins]]
-  package = "@netlify/next"
-
-[plugins.inputs]
-  buildCommand = "npm run build"
-  publishDir = ".next"
