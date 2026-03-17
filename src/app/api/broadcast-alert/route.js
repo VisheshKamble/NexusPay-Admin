@@ -7,12 +7,12 @@ export async function POST(req) {
     try {
         const { adminMessage } = await req.json();
 
-        // Hackathon Team Numbers
+        // Team Numbers from environment variables
         const teamNumbers = [
-            'whatsapp:+918104584661',
-            'whatsapp:+918169342724',
-            'whatsapp:+919321486739'
-        ];
+            process.env.TEAM_NUMBER_1,
+            process.env.TEAM_NUMBER_2,
+            process.env.TEAM_NUMBER_3
+        ].filter(Boolean); // Filter out empty/undefined values
 
         // Send messages
         const sendPromises = teamNumbers.map(number =>

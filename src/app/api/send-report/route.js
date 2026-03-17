@@ -15,7 +15,7 @@ export async function POST(req) {
 
         const mailOptions = {
             from: `"NexusPay Security & Compliance" <${process.env.EMAIL_USER}>`,
-            to: 'visheshy2k17@gmail.com',
+            to: process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER,
             subject: `OFFICIAL DISPATCH: Fraud Incident Report [${caseID}]`,
             html: `
                 <div style="background-color: #f8fafc; padding: 40px 20px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
